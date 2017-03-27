@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    
+        <title>Samath Shopping List</title>
+    
+        <!-- CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400" rel="stylesheet" type="text/css" />
+        <link href="css/app.css" rel="stylesheet" type="text/css" />
+    
+    </head>
+    
+    <body ng-app="myShoppingList">
+        <div class="header">
+          <div class="container col-md-offset-5">
+            <h3>Samath Shopping List</h3>
+          </div>
+        </div>
+            
+        <div class="main" ng-controller="myCtrl">
+            <div class="container">
+                <ul class="list-group">
+                    <li ng-repeat="x in products" class="list-group-item">{{x}}
+                    <span ng-click="removeItem($index)" class="badge" style="cursor:pointer; background-color:#8B0000">X</span>
+                    </li>
+                </ul>
+                
+                <div class="col-md-6 col-md-offset-3" >
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter item name" ng-model="addMe">
+                        <span class="input-group-btn">
+                            <button ng-click="addItem()" class="btn btn-success" type="button">ADD</button>
+                        </span>
+                    </div>    
+                    <p style="color:#f44542">{{ errortext }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/angular.min.js"></script><!-- AngualarJS Library -->
+        <script src="js/index.js"></script><!-- Module -->
+        <script src="js/app.js"></script><!-- Controller -->
+    </body>
+</html>
